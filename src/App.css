@@ -1,38 +1,293 @@
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Comfortaa&display=swap");
+
+:root {
+  --textColor: #7c4fb3;
+}
+
 .App {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+.tab-normal {
+  color: var(--textColor);  
+  font-size: 20px;
+  padding: 8px 16px;
+  font-family: Righteous, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.tab-selected {
+  background: var(--textColor);
+  color: #ffffffcd;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.tab {
+  cursor: pointer;
+}
+
+.tab:hover {
+  background-color: #7c4fb366;
+  color: #7c4fb3;
+}
+
+.title_container{ 
+  background-color: #7c4fb3;
+  padding: 8px;
+}
+
+.title {
+  font-family: Righteous, sans-serif, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: inline-block;
+  font-size: 12px;
+  color: #ffffff;
+}
+
+.simple_input {
+  border: none;
+  display: inline-block;
+  font-family: comfortaa, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: transparent;
   color: white;
+  font-size: 12px;
 }
 
-.App-link {
-  color: #61dafb;
+ul {
+  list-style-type: none;
+  list-style-position: outside;
+  margin: 0;
+  padding: 0;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+ul li {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px;
+  align-items: stretch;
+}
+
+.label{
+  display: inline-block;
+  font-family: comfortaa;
+  color: #7c4fb3; 
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.simple-input-option {
+  display: inline-block;
+  width: 100%;
+  background: #00000012;
+  border: none;
+  border-radius: 4px;
+  padding: 4px 8px;
+  font-family: comfortaa, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 12px;
+  flex: 1;
+}
+
+input:focus, textarea {
+  outline: none !important;
+}
+
+.cfi {
+  color: transparent;
+}
+
+.cfi::-webkit-file-upload-button {
+  display: none;
+}
+
+.cfi::before {
+  content: "Select Some files";
+  display: inline-block;
+  background-color: #7c4fb3;
+  border: none;
+  border-radius: 2px;
+  padding: 8px 16px;
+  color: #d1d2d3;
+  font-family: Comfortaa;
+  font-size: 14px;
+  cursor: pointer;
+  -webkit-user-select: none;
+}
+
+.file-name {
+  background: #7c4fb31f;
+  border-radius: 4px;
+  padding: 8px;
+}
+
+/* .custom-file-input::before {
+  content: 'Select some files';
+  display: inline-block;
+  background: linear-gradient(top, #f9f9f9, #e3e3e3);
+  border: 1px solid #999;
+  border-radius: 3px;
+  padding: 5px 8px;
+  outline: none;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  cursor: pointer;
+  text-shadow: 1px 1px #fff;
+  font-weight: 700;
+  font-size: 10pt;
+}
+
+.custom-file-input:hover::before {
+  border-color: black;
+}
+.custom-file-input:active::before {
+  background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+} */
+
+table{
+  table-layout: fixed;
+}
+
+td, th {
+  border: 1px solid #7c4fb31f;
+}
+
+.cell-data {
+  padding: 4px;
+  font-family: "Comfortaa";
+  font-size: 12px;
+  max-width: 128px;
+  overflow: auto;
+}
+
+.cell-data::-webkit-scrollbar {
+  width: 0px;
+  height: 1px;
+}
+
+.cell-index {
+  text-align: center;
+  min-width: 24px;
+  max-width: 64px;
+  font-family: Comfortaa;
+  font-size: 10px;
+  font-weight: bold;
+}
+
+.cell-row:nth-child(2n) {
+  background-color: #7c4fb31f;
+}
+
+.table-container {
+  padding: 8px;
+  background: #1212120f;
+  height: 75vh;
+  margin: 4px;
+  border-radius: 8px;
+  overflow-y: scroll;
+  overflow-x: scroll;
+}
+
+.table-container::-webkit-scrollbar {
+  width: 10px;
+}
+
+.table-container::-webkit-scrollbar-thumb {
+  background-color: #7c4fb3;
+  border-radius: 2px;
+}
+
+button:focus {outline:0;}
+
+.table-container::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+.props-panel::-webkit-scrollbar {
+  width: 4px;
+}
+
+.props-panel::-webkit-scrollbar-thumb {
+  background-color: #7c4fb38f;
+  border-radius: 2px;
+}
+
+.props-panel::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+.footer-container {
+  background-color: #309c3f0f;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  text-align: center;
+}
+
+.footer-text {
+  color: #7c4fb3bf;
+  font-weight: bold;
+  display: inline-block;
+  padding: 0px;
+  margin: 0px;
+  font-family: comfortaa;
+  font-size: 12px;
+}
+
+.link-icon {
+  display: inline-block;
+  padding-inline-start: 8px;
+  font-size: 16px;
+  color: #7c4fb3bf;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.link-icon:hover{
+  color: #7c4fb37f;
+  text-decoration: none;
+}
+
+.data-art {
+  font-size: 72px;
+  color: #7c4fb37f;
+  font-family: Comfortaa;
+  text-align: center;
+}
+
+.PointContainer {
+ display: inline-block; 
+}
+
+@keyframes Grow {
+  from {top: 100%}
+  to {top: 0%}
+}
+
+.button-play {
+  border: none;
+  border-radius: 100px;
+  padding: 10px 14px 10px 16px;
+  color: #7c4fb3bf;
+  cursor: pointer;
+  position: relative;
+}
+
+.button-play:hover {
+  color: #7c4fb38f;
+}
+
+.reset-btn {
+  margin-left: 24px;
+  font-size: 20px;
+  border: none;
+  text-transform: uppercase;
+  background-color: transparent;
+  font-family: "Righteous";
+  color: #7c4fb3;
+}
+
+.reset-btn:hover {
+  color: #7c4fb38f;
+}
+
+::selection {
+  color: none;
+  background: none;
 }

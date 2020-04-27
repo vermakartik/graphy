@@ -1,13 +1,93 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url("https://fonts.googleapis.com/css?family=Comfortaa&display=swap");
+@font-face {
+    font-family: "digit";
+    src: url("./assets/fonts/01-digit/01\ Digit.ttf")
 }
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@font-face {
+    font-family: "Alfa Slab One";
+    src: url("./assets/fonts/Alfa_Slab_One/AlfaSlabOne-Regular.ttf")
+}
+@font-face {
+    font-family: "arcadeclassic";
+    src: url("./assets/fonts/arcadeclassic/ARCADECLASSIC.TTF")
+}
+@font-face {
+    font-family: "AudioWide";
+    src: url("./assets/fonts/Audiowide/Audiowide-Regular.ttf")
+}
+@font-face {
+    font-family: "Bangers";
+    src: url("./assets/fonts/Bangers/Bangers-Regular.ttf")
+}
+@font-face {
+    font-family: "Black Ops One";
+    src: url("./assets/fonts/Black_Ops_One/BlackOpsOne-Regular.ttf")
+}
+@font-face {
+    font-family: "bubblebath";
+    src: url("./assets/fonts/bubblebath/BUBBLEBATH.ttf")
+}
+@font-face {
+    font-family: "Cabin Sketch";
+    src: url("./assets/fonts/Cabin_Sketch/CabinSketch-Regular.ttf")
+}
+@font-face {
+    font-family: "Caveat";
+    src: url("./assets/fonts/Caveat/Caveat-Regular.ttf")
+}
+@font-face {
+    font-family: "Disposable Droid";
+    src: url("./assets/fonts/disposabledroid-bb/DisposableDroidBB.ttf")
+}
+@font-face {
+    font-family: "Dotty";
+    src: url("./assets/fonts/dotty/dotty/dotty.ttf")
+}
+@font-face {
+    font-family: "Gochi Hand";
+    src: url("./assets/fonts/Gochi_Hand/GochiHand-Regular.ttf")
+}
+@font-face {
+    font-family: "joystix";
+    src: url("./assets/fonts/joystix/joystix\ monospace.ttf")
+}
+@font-face {
+    font-family: "luckiest guy";
+    src: url("./assets/fonts/Luckiest_Guy/LuckiestGuy-Regular.ttf")
+}
+@font-face {
+    font-family: "monoton";
+    src: url("./assets/fonts/Monoton/Monoton-Regular.ttf")
+}
+@font-face {
+    font-family: "Oxanium";
+    src: url("./assets/fonts/Oxanium/Oxanium-Regular.ttf")
+}
+@font-face {
+    font-family: "Pacifio";
+    src: url("./assets/fonts/Pacifico/Pacifico-Regular.ttf")
+}
+@font-face {
+    font-family: "pix-pixel";
+    src: url("./assets/fonts/pix-pixelfjverdana12pt/PixelFJVerdana12pt.ttf")
+}
+@font-face {
+    font-family: "pixel";
+    src: url("./assets/fonts/pixel/Pixel.ttf")
+}
+@font-face {
+    font-family: "Press Start";
+    src: url("./assets/fonts/Press_Start_2P/PressStart2P-Regular.ttf")
+}
+@font-face {
+    font-family: "Sayso chich";
+    src: url("./assets/fonts/sayso-chic/sayso\ chic.ttf")
+}
+@font-face {
+    font-family: "Sfpixelate";
+    src: url("./assets/fonts/sf-pixelate/TrueType/SFPixelate.ttf")
+}
+@font-face {
+    font-family: "Subway Ticker";
+    src: url("./assets/fonts/subway-ticker/SUBWT___.ttf")
 }
