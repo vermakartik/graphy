@@ -558,7 +558,7 @@ let Footer = () => {
 
 let App = () => {
 
-  let [currentTab, setCurrentTab] = useState(3)
+  let [currentTab, setCurrentTab] = useState(0)
   let [currentSettings, setCurrentSettings] = useState({
     infoStyleInfo: {
       width: '128px'
