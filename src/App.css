@@ -291,3 +291,27 @@ button:focus {outline:0;}
   color: none;
   background: none;
 }
+
+.ins_header {
+  font-family: "righteous"; 
+  color: #7c4fb3;
+}
+
+.ins-icon {
+  padding: 4px 4px 4px 6px;
+  border-radius: 14px;
+  color: #7c4fb3;
+  font-size: 12px;
+  background-color: #7c4fb31f;
+}
+
+.ins-strong {
+  color: #ffffff8f;
+  background-color: #7c4fb3;
+  padding: 2px 4px;
+  border-radius: 2px;
+}
+
+.ins-table {
+  
+}

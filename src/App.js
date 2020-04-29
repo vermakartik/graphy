@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import LogoImage from './assets/logo.png';
 import './App.css';
+import Instructions from './Instructions'
 
 
 const fontList = {
@@ -608,6 +609,7 @@ let App = () => {
     case 0: ToRender = <Player currentData={currentData} styleInfo={currentSettings} />; break;
     case 1: ToRender = <Data currentData={currentData} onChangeFileName={(d) => setCurrentData(d)} />; break;
     case 2: ToRender = <Settings currentSettings={currentSettings} onChangeSettings={handleChangeSettings}/>; break;
+    case 3: ToRender = <Instructions />
   }
 
   return (
@@ -616,7 +618,7 @@ let App = () => {
         <span style={{fontFamily: "Righteous", background: "#309c3f", color: "#0000007f", fontWeight: "bold", alignSelf: "middle", padding: "1px 12px", fontSize: "28px"}}> Graphy
         </span>
         <Tabbed 
-          tabs={["Play", "Data", "Settings"]}
+          tabs={["Play", "Data", "Settings", "Instructions"]}
           currentTab={currentTab}
           OnChangeTab={(index) => setCurrentTab(index)}
         />
