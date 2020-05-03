@@ -2,7 +2,9 @@ import React, { useState, useEffect, useRef } from 'react';
 import LogoImage from './assets/logo.png';
 import './App.css';
 import Instructions from './Instructions'
+import { Transition } from 'react-transition-group';
 
+const today = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate()).getTime();
 
 const fontList = {
     "digit":"digit",
@@ -73,18 +75,40 @@ let TimeInfo = ({timeText, styleInfo}) => {
   </div>
 }
 
-let Bar = ({currentHeight, styleInfo}) => 
-  <div>
-    <div style={{
+let Bar = ({currentHeight, styleInfo, animateInfo, dummyBar = false}) => 
+  dummyBar ? 
+  <div style={{
       width: styleInfo.barWidth,
-      height: currentHeight,
       margin: "auto",
       background: `${styleInfo.backgroundColor}`,
       borderTopLeftRadius: styleInfo.borderRadius,
       borderTopRightRadius: styleInfo.borderRadius,
-    }}>
-    </div>  
-  </div>
+      height: currentHeight
+    }} />:
+  <Transition
+      in={animateInfo.in}
+      timeout={animateInfo.timeout}
+      onEntered={() => animateInfo.ExitAnimation()}
+      exit={false}  
+    >{
+      (state) => {
+
+        console.log(state)
+        console.log(animateInfo)
+
+        return <div style={{
+                ...animateInfo.cDefs,
+                ...animateInfo.cStyles[state],
+                width: styleInfo.barWidth,
+                margin: "auto",
+                background: `${styleInfo.backgroundColor}`,
+                borderTopLeftRadius: styleInfo.borderRadius,
+                borderTopRightRadius: styleInfo.borderRadius,
+              }} />
+      }
+    }
+      
+  </Transition>
 
 let InfoCard = ({
   infoStyleInfo,
@@ -200,48 +224,162 @@ let evaluateRelativeStrength = (k1, k2, bs, mx) => {
   return v;
 }
 
+let toTimeText = (cd) => {
+  return asString(inDays(today) - inDays(new Date(cd.data[2]).getTime()))
+}
+
+let evaluateHeight = (cd, rd, mx) => {
+  console.log(cd + " " + rd + " " + mx)
+  return evaluateRelativeStrength(
+    inDays(new Date(cd.data[2]).getTime()),
+    inDays(today),
+    inDays(new Date(rd.data[2]).getTime()),
+    mx
+  )
+}
+
+let effectEvaluate = (data, refHeight, addFadeIn) => {
+  console.log("Effect Evaluate")
+  console.log(data)
+  let cRef = data[data.length - 1]
+
+  let defs = data.map(
+    (item, index) => { 
+      if(item.type == 0) return item
+      if(index == data.length -1 ) {
+        return addFadeIn ? {
+          transition: `height 0.5s ease-in-out, opacity 2s ease-in`,
+          height: `${0}px`, 
+          opacity: 0
+        } : {
+          transition: `height 0.5s ease-in-out`,
+          height: `${0}px` 
+        } 
+      } else if (index == data.length - 2) {
+
+        return {
+          transition: `height 0.5s ease-in-out`,
+          height: `${refHeight}px`
+        }
+
+      } else {
+        return {
+          transition: `height 0.5s ease-in-out`,
+          height: `${evaluateHeight(item, cRef, refHeight)}px`
+        }
+      }
+    }
+  )
+
+  let cstyles = data.map(
+  (item, index) => {
+    if(item.type == 0) return item
+    if(index == data.length - 1)  
+    {
+      return addFadeIn ? {
+                entering: { height: `${refHeight}px`, opacity: 1 },
+                entered: { height: `${refHeight}px`, opacity: 1 },
+                exiting: { height: `${refHeight}px`, opacity: 1 },
+                exited: { height: `${refHeight}px`, opacity: 1 }
+              } : {
+                entering: { height: `${refHeight}px` },
+                entered: { height: `${refHeight}px` },
+                exiting: { height: `${refHeight}px` },
+                exited: { height: `${refHeight}px` }
+              }
+    } 
+    else{
+      let h = evaluateHeight(item, cRef, refHeight)
+      return ({
+          entering: { height: `${h}px` },
+          entered: { height: `${h}px` },
+          exiting: { height: `${h}px` },
+          exited: { height: `${h}px` }
+        })
+      }
+    }
+  )
+
+  return {
+    defs,
+    cstyles 
+  }
+}
+
 let MoverContainer = ({currentData, styleInfo}) => {
 
-  let [currentFiles, setCurrentFiles] = useState([{index: 0, type: 0}])
   let [currentIndexToAdd, setCurrentIndexToAdd] = useState(0)
-  let [pPositionInfo, setPositionInfo] = useState([0])
+  let [maxCount, setMaxCount] = useState(6)
+
   let {innerWidth: wwidth, innerHeight: wheight} = window
   let wdth = (parseInt(styleInfo.infoStyleInfo.width.trim('px')) + 24)
-  let maxHeight = parseFloat(styleInfo.barStyleInfo.height.trim('px')) 
-  let [maxCount, setMaxCount] = useState(6)
+  let maxHeight = parseFloat(styleInfo.barStyleInfo.height.trim('px'))
+
   let inBwMargin = parseInt((wwidth - wdth * maxCount) / maxCount)
-  
+
+  let [currentState, setCurrentState] = useState({
+    files: [{index: 0, type: 0}],
+    pos: [0],
+    animateInfo: {
+      defs: [null],
+      cstyles: [null]
+    }
+  }) 
+  let [animateHeights, setAnimateHeights] = useState(false)
+
   useEffect(() => {
     inBwMargin = parseInt((wwidth - wdth * maxCount) / maxCount)
   }, [maxCount])
 
-  let UpdatePosition = () => {
-    let nPositionData = pPositionInfo.map(it => it + 1)
-    // console.log(nPositionData)
+  const UpdatePosition = () => {
+    let nPositionData = currentState.pos.map(it => it + 1)
+    let lFiles = currentState.files.map(i => i) 
+    let shouldUpdateAnimateInfo = false
+    let addFadeIn = false
+
     console.log(`Width Is: ${wdth} | nPositions: ${nPositionData} | nPositions Length: ${nPositionData[nPositionData.length-1]}`)
     
-
-    if(nPositionData[0] >= wwidth - wdth) {
-        let lFiles = currentFiles.map(i => i)
+    if(nPositionData[0] >= wwidth - wdth) {       
         lFiles.shift()
-        setCurrentFiles(lFiles)
         nPositionData.shift()
+        shouldUpdateAnimateInfo = true
     } 
     if(nPositionData[nPositionData.length-1] > wdth + inBwMargin) {
       console.log("Statement True");
-      console.log(currentFiles)
       if(currentData != null) {
         if(currentIndexToAdd < currentData.length) {
           nPositionData.push(0)
-          let a = currentFiles.map(i => i)
-          a.push({type: 1, index: currentIndexToAdd + 1, data: currentData[currentIndexToAdd]})
-          setCurrentFiles(a)
+          lFiles.push({type: 1, index: currentIndexToAdd + 1, data: currentData[currentIndexToAdd]})
           setCurrentIndexToAdd(currentIndexToAdd + 1) 
+          shouldUpdateAnimateInfo = true
+          addFadeIn = true
         } 
       }
     } 
-    setPositionInfo(nPositionData)
-  } 
+
+    if(shouldUpdateAnimateInfo) {
+
+      let aState = effectEvaluate(lFiles, maxHeight, addFadeIn)
+      console.log("Update nPositionInfo")
+      console.log(nPositionData)
+      console.log(lFiles)
+      console.log(aState)
+
+      setCurrentState({
+        pos: nPositionData,
+        files: lFiles,
+        animateInfo: aState
+      })
+      setAnimateHeights(true)
+    } else {
+      setCurrentState({
+        pos: nPositionData,
+        files: lFiles,
+        animateInfo: currentState.animateInfo
+      }) 
+    }
+    
+  }
 
   let handleRunChangeRequest = (nState) => {
     if(currentData == null) return
@@ -251,56 +389,64 @@ let MoverContainer = ({currentData, styleInfo}) => {
   }
 
   let handleReset = () => {
-    setCurrentFiles([{styleInfo: styleInfo.barStyleInfo, type: 0}])
-    setPositionInfo([0])
+    setCurrentState({
+      files: [{index: "row_1", type: 0}],
+      pos: [0] 
+    })
     setCurrentIndexToAdd(0)
   }
 
   let {isRunning, cDelay, setRunning, setDelay} = useInterval(UpdatePosition, 50, false)
-  let today = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate()).getTime();
 
   return (
     <div>
-      <div style={{position: "relativee", width: "100%", height:"100%", bottom: "0"}}>
+      <div style={{width: "100%", height:"100%", bottom: "0"}}>
         <div style={{position: "absolute", width:"100%", height: "100%"}}>
           {
-            pPositionInfo.length > 0 ?
-            currentFiles.map((item, index) => {
+            currentState.pos.length > 0 ?
+            currentState.files.map((item, index) => {
+              
+              console.log("----Begin---")
+              console.log(currentState)
+              console.log("----End----")
 
               switch(item.type){
                 case 0:
                   return <BeginPoint 
-                          key={currentFiles[index].index}
-                          rPosition={`${pPositionInfo[index]}px`}
+                          key={item.index}
+                          rPosition={`${currentState.pos[index]}px`}
                           styleInfo={{...styleInfo.barStyleInfo, fontFamily: styleInfo.timeStyleInfo.fontFamily, color: styleInfo.timeStyleInfo.textColor, fontSize: styleInfo.timeStyleInfo.fontSize}}
-                         />
+                        />
                 case 1:
                   return <InfoCard
-                            key={currentFiles[index].index} 
-                            rPosition={`${pPositionInfo[index]}px`}
-                            infoStyleInfo={styleInfo.infoStyleInfo} 
+                            key={item.index} 
+                            rPosition={`${currentState.pos[index]}px`}
+                            infoStyleInfo={styleInfo.infoStyleInfo}
                             titleInfo={{
-                              text: currentFiles[index].data[0],
+                              text: item.data[0],
                               styleInfo: styleInfo.titleTextStyleInfo
                             }}
                             imageInfo={{
-                              imageURL: currentFiles[index].data[1],
+                              imageURL: item.data[1],
                               styleInfo: styleInfo.imageStyleInfo
                             }}
                             timeInfo={{
-                              timeText:asString(inDays(today) - inDays(new Date(currentFiles[index].data[2]).getTime())),
+                              timeText: toTimeText(item),
                               styleInfo: styleInfo.timeStyleInfo 
                             }}
                             barInfo = {{
-                              currentHeight: `${
-                                evaluateRelativeStrength(
-                                  inDays(new Date(currentFiles[index].data[2]).getTime()),
-                                  inDays(today),
-                                  inDays(new Date(currentFiles[currentFiles.length - 1].data[2]).getTime()),
-                                  maxHeight
-                                )
-                              }px`,
-                              styleInfo: styleInfo.barStyleInfo
+                              currentHeight: `${evaluateHeight(item, currentState.files[currentState.files.length - 1], maxHeight)}px`,
+                              styleInfo: styleInfo.barStyleInfo,
+                              animateInfo: {
+                                in: animateHeights,
+                                timeout: 300,
+                                ExitAnimation: () => {
+                                  console.log("Exiting Animation!")
+                                  setAnimateHeights(false)
+                                },
+                                cDefs: currentState.animateInfo.defs[index],
+                                cStyles: currentState.animateInfo.cstyles[index]
+                              }
                             }}
                           />
               }
@@ -365,9 +511,9 @@ let DataToTable = ({rows}) => (
 
 let DataArt = () => (
   <div className="data-art">
-     \_(-_-)_/<br />
-     <span style={{fontSize: "24px"}}>No Data. Select a File.</span>
- </div>
+    \_(-_-)_/<br />
+    <span style={{fontSize: "24px"}}>No Data. Select a File.</span>
+  </div>
 )
 
 let Data = ({currentData, onChangeFileName}) => {
@@ -390,6 +536,7 @@ let Data = ({currentData, onChangeFileName}) => {
   }
   
   let handleTempFileSelect = (e) => {
+    if(e.target.value == null || e.target.value == '' || e.target.value == undefined) return
     tempFileSelect = e.target.value;
     setTempFileSelect(e.target.value)
     fileReader = new FileReader()
@@ -455,7 +602,8 @@ let Settings = ({currentSettings, onChangeSettings}) => {
                 }}
                 barInfo = {{
                   currentHeight: currentSettings.barStyleInfo.height,
-                  styleInfo: currentSettings.barStyleInfo
+                  styleInfo: currentSettings.barStyleInfo,
+                  dummyBar: true
                 }}
               />
             </div>
