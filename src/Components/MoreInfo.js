@@ -1,4 +1,5 @@
 import React from 'react'
+import { splitUp } from './Utils'
 
 const MoreInfo = ({moreInfoText, styleInfo}) => {
 
@@ -20,7 +21,9 @@ const MoreInfo = ({moreInfoText, styleInfo}) => {
             borderColor: styleInfo.borderColor,
             fontWeight: styleInfo.fontWeight
         }}>
-            {moreInfoText}
+            {
+                splitUp(moreInfoText)
+            }
         </div>
     )
 }

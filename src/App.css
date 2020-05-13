@@ -35,6 +35,13 @@ body {
   background-color: var(--background);
 }
 
+.adv_title {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  color: var(--normalText);
+  font-weight: bold;
+}
+
 .tab-selected {
   background: var(--textColor);
   color: #343434;
@@ -55,6 +62,13 @@ body {
   display: flex;
   /* border-bottom: 1px solid var(--normalText); */
   /* border-left: 1px solid var(--normalText); */
+}
+
+.title_image_string {
+  height: 100%;
+  width: 100%;
+  margin: auto;
+  object-fit: cover;
 }
 
 .color_container {

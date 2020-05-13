@@ -1,4 +1,5 @@
 import React from 'react'
+import { splitUp } from './Utils'
 
 let TitleText = ({text, styleInfo}) => (
     <div style={{
@@ -14,7 +15,7 @@ let TitleText = ({text, styleInfo}) => (
             fontFamily: styleInfo.fontFamily,
             color: `${styleInfo.textColor}`
         }}>
-            {text}
+            {splitUp(text)}
         </p>
     </div>
 ) 

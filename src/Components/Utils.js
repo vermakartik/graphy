@@ -1,4 +1,5 @@
 import { INP_TYPES } from "./Constants"
+import React from 'react'
 
 let asString = (d) => {
     if(d < 365) return `${d} days old`
@@ -153,11 +154,26 @@ const constructRGB = (c) => {
   return `rgba(${c.r}, ${c.g}, ${c.b}, ${c.a})`
 }
 
+const splitUp = (l) => {
+
+  return (
+    <>
+    {
+      l.split("^").
+        map(item => item.trim("\n").trim("\t").trim(" ")).
+        filter(item => item.length > 0 || item !== "" || item != null || item != undefined).
+        map((item, index) => <><span>{item}</span><br /></>)
+    }
+    </>
+  )
+} 
+
 export {
     effectEvaluate,
     evaluateHeight,
     evaluateRelativeStrength,
     asString,
+    splitUp,
     builders,
     constructRGB
 }

@@ -218,7 +218,8 @@ let Settings = ({cs, onChangeSettings}) => {
                   {
                     RenderTileArray([
                       builders.makeSimpleInput("Padding", cs.imageStyleInfo.padding, ChangeSimpleInputType, "imageStyleInfo", "padding"),
-                      builders.makeSimpleInput("Size", cs.imageStyleInfo.height, ChangeSimpleInputType, "imageStyleInfo", "height")
+                      builders.makeSimpleInput("Size", cs.imageStyleInfo.height, ChangeSimpleInputType, "imageStyleInfo", "height"),
+                      builders.makeSimpleInput("Border Radius", cs.imageStyleInfo.borderRadius, ChangeSimpleInputType, "imageStyleInfo", "bordeRadius")
                     ])
                   }
                 </ul>

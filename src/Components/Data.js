@@ -37,6 +37,7 @@ let Data = ({currentData, onChangeFileName}) => {
     }
 
     let SplitData = (data) => {
+        console.log(`Column Seperator: ${columnSeperator}`)
         let lines = data.trim("\n").trim("\t").split("\n").
                         map(item => item.trim("\n").trim('\t').split(columnSeperator).
                         map(i => i.trim(columnSeperator).trim(" ").trim("\t")).
@@ -66,11 +67,12 @@ let Data = ({currentData, onChangeFileName}) => {
                 <span className="label">Column Seperator</span>
                 <input className="input_opt" type="text" value={columnSeperator} onChange={(e) => {
                     setColumnSeperator(e.target.value)
+                    
                 }} />
             </div>
             <div style={{padding: "8px", fontFamily: "Comfortaa"}}> 
                 <input type="file" className="cfi" value={tempFileSelect} onChange={(e) => {
-                handleTempFileSelect(e)
+                    handleTempFileSelect(e)
                 }} />
                 <span className={`${tempFileSelect != null && tempFileSelect.length > 0 ? "file-name" : ""}`}>
                 {fPTemp}

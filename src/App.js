@@ -40,7 +40,8 @@ let App = () => {
     },
     imageStyleInfo: {
       padding: "10px",
-      height: "96px"
+      height: "96px",
+      borderRadius: "4px"
     },
     timeStyleInfo:{
       textAlign: "center",
@@ -115,7 +116,7 @@ let App = () => {
   return (
     <div>
       <div style={{display: "flex", alignItems: "stretch"}}>
-        <span className="graphy-title"> Graphy
+        <span className="graphy-title"> Graphy<sup className="adv_title">Adv</sup>
         </span>
         <Tabbed 
           tabs={["Play", "Data", "Settings", "Instructions"]}

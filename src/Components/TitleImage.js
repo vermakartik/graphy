@@ -5,11 +5,13 @@ let TitleImage = ({imageURL, styleInfo}) =>
     padding: styleInfo.padding,
     height: styleInfo.height,
     width: styleInfo.height,
-    margin: "auto"
+    margin: "auto",
+    borderRadius: styleInfo.borderRadius,
+    overflow: "hidden"
   }}>
     <img 
       src={imageURL} 
-      style={{width: "100%", position: "relative", display: "block"}}
+      className="title_image_string"
       />
   </div> 
 
