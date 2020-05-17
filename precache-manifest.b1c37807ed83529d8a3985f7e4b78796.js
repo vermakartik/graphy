@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "f2a0d15d78ad021eee2d117c27fda838",
+    "revision": "0026906bdb0919d0eda73995d9a36d38",
     "url": "/graphy/index.html"
   },
   {
-    "revision": "ab69c2549b2b246439ba",
-    "url": "/graphy/static/css/main.3fb58159.chunk.css"
+    "revision": "b64c4d7b122b6c675647",
+    "url": "/graphy/static/css/main.a2704c58.chunk.css"
   },
   {
     "revision": "c59435f56642d5ae7d39",
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/graphy/static/js/2.1d778ee4.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "ab69c2549b2b246439ba",
-    "url": "/graphy/static/js/main.01f14913.chunk.js"
+    "revision": "b64c4d7b122b6c675647",
+    "url": "/graphy/static/js/main.4ccc1897.chunk.js"
   },
   {
     "revision": "48f4c82d195b8d477ded",
@@ -26,6 +26,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "66a8f0126d0e5a8fab91afbd45c17eba",
     "url": "/graphy/static/media/01 Digit.66a8f012.ttf"
+  },
+  {
+    "revision": "c6d6bab07ed6749fb96431eac12bbe29",
+    "url": "/graphy/static/media/ABeeZee-Regular.c6d6bab0.ttf"
   },
   {
     "revision": "964111990ca3937960147b80e8d07e61",
@@ -56,8 +60,24 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/graphy/static/media/CabinSketch-Regular.dc97f34a.ttf"
   },
   {
+    "revision": "be4424ae2b9025062ed0ef751ed23afb",
+    "url": "/graphy/static/media/Cascadia.be4424ae.ttf"
+  },
+  {
     "revision": "b20ff458bc0dc48c039c68a3dc96173c",
     "url": "/graphy/static/media/Caveat-Regular.b20ff458.ttf"
+  },
+  {
+    "revision": "c2488bfda16e6a811f62414da90e51e4",
+    "url": "/graphy/static/media/Comfortaa-Regular.c2488bfd.ttf"
+  },
+  {
+    "revision": "03ef685b34f3356631c3f60c91917002",
+    "url": "/graphy/static/media/CourierPrime-Regular.03ef685b.ttf"
+  },
+  {
+    "revision": "94cf25cdd61e182201ac98726dfcca6d",
+    "url": "/graphy/static/media/DMMono-Medium.94cf25cd.ttf"
   },
   {
     "revision": "249f9330482c8b6305b62435c8adfcf2",
@@ -66,6 +86,18 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "9b48452cfcc1da9b1f684f991cb3d1e3",
     "url": "/graphy/static/media/GochiHand-Regular.9b48452c.ttf"
+  },
+  {
+    "revision": "9298077dbed902cc127c5978d2ebffc1",
+    "url": "/graphy/static/media/Hermit-Regular.9298077d.otf"
+  },
+  {
+    "revision": "526ccd00470ba238433922d5e6cc3eed",
+    "url": "/graphy/static/media/Jost-Regular.526ccd00.ttf"
+  },
+  {
+    "revision": "37521aea7ad7c58a7b94074558146065",
+    "url": "/graphy/static/media/Lekton-Regular.37521aea.ttf"
   },
   {
     "revision": "c6004be49628b1226eb31b068348d24f",
@@ -96,6 +128,14 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/graphy/static/media/PressStart2P-Regular.2c404fd0.ttf"
   },
   {
+    "revision": "6c400671a04db2306d95cf4847b91fa8",
+    "url": "/graphy/static/media/Qarmic_sans_Abridged.6c400671.ttf"
+  },
+  {
+    "revision": "77fa00996ecb4104c7880b8749c7c4e0",
+    "url": "/graphy/static/media/Righteous-Regular.77fa0099.ttf"
+  },
+  {
     "revision": "60ad0534c4f6733fca1d6246d200b10c",
     "url": "/graphy/static/media/SFPixelate.60ad0534.ttf"
   },
@@ -104,8 +144,16 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/graphy/static/media/SUBWT___.7dc31662.ttf"
   },
   {
+    "revision": "44b223ad896c78b16682dcf37a6bb6af",
+    "url": "/graphy/static/media/archia-regular-webfont.44b223ad.ttf"
+  },
+  {
     "revision": "5d6acef1af47457f92ef99414c089dd4",
     "url": "/graphy/static/media/dotty.5d6acef1.ttf"
+  },
+  {
+    "revision": "a7dcc3680a32ac801429c9bb64475bab",
+    "url": "/graphy/static/media/fantasquesansmono-regular.a7dcc368.otf"
   },
   {
     "revision": "18abc72225d23f9393a4bddfe0c9351c",
