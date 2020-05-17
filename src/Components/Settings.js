@@ -218,8 +218,11 @@ let Settings = ({cs, onChangeSettings}) => {
                   {
                     RenderTileArray([
                       builders.makeSimpleInput("Padding", cs.imageStyleInfo.padding, ChangeSimpleInputType, "imageStyleInfo", "padding"),
-                      builders.makeSimpleInput("Size", cs.imageStyleInfo.height, ChangeSimpleInputType, "imageStyleInfo", "height"),
-                      builders.makeSimpleInput("Border Radius", cs.imageStyleInfo.borderRadius, ChangeSimpleInputType, "imageStyleInfo", "bordeRadius")
+                      builders.makeSimpleInput("Height", cs.imageStyleInfo.height, ChangeSimpleInputType, "imageStyleInfo", "height"),
+                      builders.makeSimpleInput("Width", cs.imageStyleInfo.width, ChangeSimpleInputType, "imageStyleInfo", "width"),
+                      builders.makeSimpleInput("Border Radius", cs.imageStyleInfo.borderRadius, ChangeSimpleInputType, "imageStyleInfo", "borderRadius"),
+                      builders.makeColorInput("Background Color", cs.imageStyleInfo.backgroundColor, ChangeSimpleInputType, "imageStyleInfo", "backgroundColor"),
+                      builders.makeSimpleInput("Bottom Margin", cs.imageStyleInfo.marginBottom, ChangeSimpleInputType, "imageStyleInfo", "marginBottom")
                     ])
                   }
                 </ul>
@@ -339,7 +342,8 @@ let Settings = ({cs, onChangeSettings}) => {
                     RenderTileArray([
                       builders.makeColorInput("Background Color", cs.playerState.backgroundColor, ChangeSimpleInputType, "playerState", "backgroundColor"),
                       builders.makeSimpleInput("Max Count", cs.playerState.maxCount, ChangeSimpleInputType, "playerState", "maxCount"),
-                      builders.makeSimpleInput("Spawn Interval", cs.playerState.delay, ChangeSimpleInputType, "playerState", "delay")
+                      builders.makeSimpleInput("Spawn Interval", cs.playerState.delay, ChangeSimpleInputType, "playerState", "delay"),
+                      builders.makeSimpleInput("Height Transition Time", cs.playerState.hTransitionTime, ChangeSimpleInputType, "playerState", "hTransitionTime")
                     ])
                   }
                 </ul>

@@ -68,7 +68,7 @@ let MoverContainer = ({currentData, styleInfo}) => {
 
         if(shouldUpdateAnimateInfo) {
 
-            let aState = effectEvaluate(lFiles, maxHeight, addFadeIn, Eval, styleInfo.evalInfo.config)
+            let aState = effectEvaluate(lFiles, maxHeight, addFadeIn, Eval, styleInfo.evalInfo.config, styleInfo.playerState)
             console.log("Update nPositionInfo")
             console.log(nPositionData)
             console.log(lFiles)

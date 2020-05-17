@@ -1,4 +1,10 @@
 @import url("https://fonts.googleapis.com/css?family=Comfortaa&display=swap");
+
+@font-face {
+    font-family: "Archia";
+    src: url("./assets/fonts/archia/archia-regular-webfont.ttf")
+}
+
 @font-face {
     font-family: "digit";
     src: url("./assets/fonts/01-digit/01\ Digit.ttf")
@@ -91,3 +97,60 @@
     font-family: "Subway Ticker";
     src: url("./assets/fonts/subway-ticker/SUBWT___.ttf")
 }
+
+@font-face {
+    font-family: "Cascadia Code";
+    src: url('./assets/fonts/cascadia-code/Cascadia.ttf');
+}
+
+@font-face {
+    font-family: "Comfortaa";
+    src: url('./assets/fonts/Comfortaa/static/Comfortaa-Regular.ttf');
+}
+
+@font-face {
+    font-family: "Courier Prime";
+    src: url('./assets/fonts/Courier_Prime/CourierPrime-Regular.ttf');
+}
+
+@font-face {
+    font-family: "DM Mono";
+    src: url('./assets/fonts/DM_Mono/DMMono-Medium.ttf');
+}
+
+@font-face {
+    font-family: "Fantasque Sans Mono";
+    src: url('./assets/fonts/fantasque-sans-mono/fantasquesansmono-regular.otf')
+}
+
+
+@font-face {
+    font-family: "Hermit";
+    src: url('./assets/fonts/hermit/fonts/Hermit-Regular.otf')
+}
+
+@font-face {
+    font-family: "Jost";
+    src: url('./assets/fonts/Jost/static/Jost-Regular.ttf')
+}
+
+@font-face {
+    font-family: "Lekton";
+    src: url('./assets/fonts/Lekton/Lekton-Regular.ttf')
+}
+
+@font-face {
+    font-family: "Quarmic Sans";
+    src: url('./assets/fonts/Qikki-Reg/Qarmic_sans_Abridged.ttf')
+}
+
+@font-face {
+    font-family: "Righteous";
+    src: url('./assets/fonts/Righteous/Righteous-Regular.ttf')
+}
+
+@font-face {
+    font-family: "AbeeZee";
+    src: url('./assets/fonts/ABeeZee/ABeeZee-Regular.ttf')
+}
+

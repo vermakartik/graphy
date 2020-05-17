@@ -19,11 +19,12 @@ let Tabbed = ({tabs, currentTab, OnChangeTab}) => {
       </div>
     </div>
   )
+  
 }
 
 let App = () => {
 
-  let [currentTab, setCurrentTab] = useState(0)
+  let [currentTab, setCurrentTab] = useState(2)
   let [currentSettings, setCurrentSettings] = useState({
     infoStyleInfo: {
       width: '128px',
@@ -40,8 +41,11 @@ let App = () => {
     },
     imageStyleInfo: {
       padding: "10px",
+      width: '96px',
       height: "96px",
-      borderRadius: "4px"
+      borderRadius: "4px",
+      backgroundColor: "#0000002f",
+      marginBottom: "12px"
     },
     timeStyleInfo:{
       textAlign: "center",
@@ -86,7 +90,8 @@ let App = () => {
     playerState: {
       maxCount: 6,
       delay: 50,
-      backgroundColor: "#00000000"
+      backgroundColor: "#00000000",
+      hTransitionTime: "500ms" 
     }
   })
 
@@ -116,7 +121,7 @@ let App = () => {
   return (
     <div>
       <div style={{display: "flex", alignItems: "stretch"}}>
-        <span className="graphy-title"> Graphy<sup className="adv_title">Adv</sup>
+        <span className="graphy-title"> Graphy<sup className="adv_title">&#x03B1;</sup>
         </span>
         <Tabbed 
           tabs={["Play", "Data", "Settings", "Instructions"]}

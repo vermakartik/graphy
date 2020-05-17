@@ -27,7 +27,7 @@ const evaluateHeight = (cd, rd, mx, evaluator, config) => {
     )
   }
 
-const effectEvaluate = (data, refHeight, addFadeIn, evaluator, config) => {
+const effectEvaluate = (data, refHeight, addFadeIn, evaluator, config, transitionInfo) => {
   console.log("Effect Evaluate")
   console.log(data)
   console.log(evaluator)
@@ -38,24 +38,24 @@ const effectEvaluate = (data, refHeight, addFadeIn, evaluator, config) => {
       if(item.type == 0) return item
       if(index == data.length -1 ) {
         return addFadeIn ? {
-          transition: `height 0.5s ease-in-out, opacity 2s ease-in`,
+          transition: `opacity ${transitionInfo.hTransitionTime} ease-in`,
           height: `${0}px`, 
           opacity: 0
         } : {
-          transition: `height 0.5s ease-in-out`,
+          transition: `height ${transitionInfo.hTransitionTime} ease-in-out`,
           height: `${0}px` 
         } 
       } else if (index == data.length - 2) {
 
         return {
-          transition: `height 0.5s ease-in-out`,
+          transition: `height ${transitionInfo.hTransitionTime} ease-in-out`,
           height: `${refHeight}px`
         }
 
       } else {
         console.log("Called for Index " + index)
         return {
-          transition: `height 0.5s ease-in-out`,
+          transition: `height ${transitionInfo.hTransitionTime} ease-in-out`,
           height: `${evaluateHeight(item.data[2], cRef.data[2], refHeight, evaluator, config)}px`
         }
       }

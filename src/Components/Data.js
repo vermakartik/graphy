@@ -67,7 +67,6 @@ let Data = ({currentData, onChangeFileName}) => {
                 <span className="label">Column Seperator</span>
                 <input className="input_opt" type="text" value={columnSeperator} onChange={(e) => {
                     setColumnSeperator(e.target.value)
-                    
                 }} />
             </div>
             <div style={{padding: "8px", fontFamily: "Comfortaa"}}> 
