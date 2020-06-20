@@ -8,12 +8,7 @@ let TitleText = ({text, styleInfo}) => (
         <p style={{
             display: "inline-block",
             text: "center",
-            fontSize: styleInfo.textSize,
-            padding: styleInfo.padding,
-            backgroundColor: `${styleInfo.backgroundColor}`,
-            borderRadius: styleInfo.borderRadius,
-            fontFamily: styleInfo.fontFamily,
-            color: `${styleInfo.textColor}`
+            ...styleInfo
         }}>
             {splitUp(text)}
         </p>

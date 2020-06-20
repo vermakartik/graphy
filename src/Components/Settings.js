@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 import '../App.css'
 import InfoCard from './Info'
-import {fontList, INP_TYPES, BORDER_STYLES} from './Constants'
+import {fontList, INP_TYPES, BORDER_STYLES, FONT_WEIGHTS} from './Constants'
 import { builders, constructRGB } from './Utils'
 import {ChromePicker} from 'react-color'
 import { Evaluators } from './evaluator'
@@ -81,10 +81,7 @@ let ColorInput = ({title, value, onChangeParams}) => {
       <div className="col-md-3 col-12 label">{title}</div>
       <div className="col-md-9 col-12 input_o_container">
         <div className="selected_color" style={{
-          backgroundColor: value,
-          width: "100%",
-          display: "block",
-          height: "26px"
+          backgroundColor: value
         }}
         onClick={() => setShow(true)} />
         <ColorSelector 
@@ -115,14 +112,11 @@ let RenderTitle = ({title, varInfo}) => {
             <div className="title">{title}</div>
             {
               varInfo.render ? 
-              <>
-                <span>-</span>
                 <input 
                   className="simple_input"
                   type="text"
                   value={varInfo.value}
-                  onChange={(e) => varInfo.set(e.target.value)}/>
-              </> : 
+                  onChange={(e) => varInfo.set(e.target.value)}/>: 
               <></>
             }
           </div>
@@ -202,8 +196,9 @@ let Settings = ({cs, onChangeSettings}) => {
                         builders.makeSimpleInput("Border Radius", cs.titleTextStyleInfo.borderRadius, ChangeSimpleInputType, "titleTextStyleInfo", "borderRadius"),
                         builders.makeColorInput("Background Color", cs.titleTextStyleInfo.backgroundColor, ChangeSimpleInputType, "titleTextStyleInfo", "backgroundColor"),
                         builders.makeSelectPanel("Font Family", cs.titleTextStyleInfo.fontFamily, Object.keys(fontList), ChangeSimpleInputType, "titleTextStyleInfo", "fontFamily"),
-                        builders.makeColorInput('Text Color', cs.titleTextStyleInfo.textColor, ChangeSimpleInputType, "titleTextStyleInfo", "textColor"),
-                        builders.makeSimpleInput("Text Size", cs.titleTextStyleInfo.textSize, ChangeSimpleInputType, "titleTextStyleInfo", "textSize")                        
+                        builders.makeColorInput('Text Color', cs.titleTextStyleInfo.color, ChangeSimpleInputType, "titleTextStyleInfo", "color"),
+                        builders.makeSimpleInput("Text Size", cs.titleTextStyleInfo.fontSize, ChangeSimpleInputType, "titleTextStyleInfo", "fontSize"),
+                        builders.makeSelectPanel("Font Weight", cs.titleTextStyleInfo.fontWeight, FONT_WEIGHTS, ChangeSimpleInputType, "titleTextStyleInfo", "fontWeight")
                       ])
                   }
                   
@@ -238,7 +233,8 @@ let Settings = ({cs, onChangeSettings}) => {
                       builders.makeSimpleInput("Bottom Margin", cs.timeStyleInfo.marginBottom, ChangeSimpleInputType, "timeStyleInfo", "marginBottom"),
                       builders.makeSimpleInput("Font Size", cs.timeStyleInfo.fontSize, ChangeSimpleInputType, "timeStyleInfo", "fontSize"), 
                       builders.makeSelectPanel("Font Family", cs.timeStyleInfo.fontFamily, Object.keys(fontList), ChangeSimpleInputType, "timeStyleInfo", "fontFamily"),
-                      builders.makeColorInput("Text Color", cs.timeStyleInfo.textColor, ChangeSimpleInputType, "timeStyleInfo", "textColor")
+                      builders.makeColorInput("Text Color", cs.timeStyleInfo.color, ChangeSimpleInputType, "timeStyleInfo", "color"),
+                      builders.makeSelectPanel("Font Weight", cs.timeStyleInfo.fontWeight, FONT_WEIGHTS, ChangeSimpleInputType, "timeStyleInfo", "fontWeight")
                     ])
                   }
                 </ul>
@@ -327,7 +323,7 @@ let Settings = ({cs, onChangeSettings}) => {
                       builders.makeColorInput("Border Color", cs.moreInfo.borderColor, ChangeSimpleInputType, "moreInfo", "borderColor"),
                       builders.makeColorInput("Text Color", cs.moreInfo.color, ChangeSimpleInputType, "moreInfo", "color"),
                       builders.makeSimpleInput("Font Size", cs.moreInfo.fontSize, ChangeSimpleInputType, "moreInfo", "fontSize"),
-                      builders.makeSimpleInput("Font Weight", cs.moreInfo.fontWeight, ChangeSimpleInputType, "moreInfo", "fontWeight")
+                      builders.makeSelectPanel("Font Weight", cs.moreInfo.fontWeight, FONT_WEIGHTS, ChangeSimpleInputType, "moreInfo", "fontWeight")
                     ])
                   }
                 </ul>

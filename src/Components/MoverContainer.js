@@ -119,20 +119,20 @@ let MoverContainer = ({currentData, styleInfo}) => {
                 currentState.pos.length > 0 ?
                 currentState.files.map((item, index) => {
                 
-                console.log("----Begin---")
-                console.log(currentState)
-                console.log("----End----")
+                // console.log("----Begin---")
+                // console.log(currentState)
+                // console.log("----End----")
 
                 switch(item.type){
                     case 0:
                     return <BeginPoint  
-                            key={item.index}
-                            rPosition={`${currentState.pos[index]}px`}
-                            styleInfo={{...styleInfo.barStyleInfo, fontFamily: styleInfo.timeStyleInfo.fontFamily, color: styleInfo.timeStyleInfo.textColor, fontSize: styleInfo.timeStyleInfo.fontSize}}
-                            textInfo={styleInfo.beginPointInfo.textInfo}
-                            ballSize={styleInfo.beginPointInfo.ballSize}
-                            show={styleInfo.beginPointInfo.show}
-                            barWidth={styleInfo.beginPointInfo.barWidth}
+                                key={item.index}
+                                rPosition={`${currentState.pos[index]}px`}
+                                styleInfo={{...styleInfo.barStyleInfo, fontFamily: styleInfo.timeStyleInfo.fontFamily, color: styleInfo.timeStyleInfo.color, fontSize: styleInfo.timeStyleInfo.fontSize}}
+                                textInfo={styleInfo.beginPointInfo.textInfo}
+                                ballSize={styleInfo.beginPointInfo.ballSize}
+                                show={styleInfo.beginPointInfo.show}
+                                barWidth={styleInfo.beginPointInfo.barWidth}
                             />
                     case 1:
                     return <InfoCard

@@ -25,6 +25,8 @@ const fontList = {
     "Lekton": "Lekton",
     "luckiest guy":"luckiest guy",
     "monoton":"monoton",
+    "Minecraft Reg": "Minecraft Reg",
+    "Minecraft Alt": "Minecraft Alt",
     "Oxanium":"Oxanium",
     "Pacifio":"Pacifio",
     "pix-pixel":"pix-pixel",
@@ -68,9 +70,12 @@ const BORDER_STYLES = [
     ,'inherit'
 ]
 
+const FONT_WEIGHTS = ['50', '100', '200', '300', '400', '500', '600', '700', '800', '900', 'bold', 'bolder']
+
 export {
     fontList,
     DATE_FORMATS,
     INP_TYPES,
-    BORDER_STYLES
+    BORDER_STYLES,
+    FONT_WEIGHTS
 }

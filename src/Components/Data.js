@@ -17,11 +17,8 @@ let DataToTable = ({rows}) => (
 
 let DataArt = () => (
     <div className="data-art">
-        \_[&#x00ba;_&#x00ba;]_/<br />
-        /  \<br />
-        \  /<br />
-        _ _<br />
-        <span style={{fontSize: "24px"}}>No Data. Select a File.</span>
+        ¯\(°_o)/¯<br />
+        <span style={{fontSize: "14px"}}>No Data. Select a File.</span>
     </div>
 )
 
@@ -63,8 +60,8 @@ let Data = ({currentData, onChangeFileName}) => {
 
     return (
         <div>
-            <div style={{padding: "8px", fontFamily: "Comfortaa"}}> 
-                <span className="label">Column Seperator</span>
+            <div className="dContainer"> 
+                <span className="con_label">Column Seperator</span>
                 <input className="input_opt" type="text" value={columnSeperator} onChange={(e) => {
                     setColumnSeperator(e.target.value)
                 }} />

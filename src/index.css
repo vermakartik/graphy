@@ -154,3 +154,12 @@
     src: url('./assets/fonts/ABeeZee/ABeeZee-Regular.ttf')
 }
 
+@font-face {
+    font-family: "Minecraft Alt";
+    src: url('./assets/fonts/minecrafter/Minecrafter_Alt.ttf')
+}
+
+@font-face {
+    font-family: "Minecraft Reg";
+    src: url('./assets/fonts/minecrafter/Minecrafter_Reg.ttf')
+}
