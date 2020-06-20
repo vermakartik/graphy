@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "0026906bdb0919d0eda73995d9a36d38",
+    "revision": "4c3be062e2364f481e7b0069a8700915",
     "url": "/graphy/index.html"
   },
   {
-    "revision": "b64c4d7b122b6c675647",
-    "url": "/graphy/static/css/main.a2704c58.chunk.css"
+    "revision": "2fb34af6418c185667c1",
+    "url": "/graphy/static/css/main.6793c4cc.chunk.css"
   },
   {
-    "revision": "c59435f56642d5ae7d39",
-    "url": "/graphy/static/js/2.1d778ee4.chunk.js"
+    "revision": "50ea2bf391c28e140218",
+    "url": "/graphy/static/js/2.3f10d57b.chunk.js"
   },
   {
     "revision": "e88a3e95b5364d46e95b35ae8c0dc27d",
-    "url": "/graphy/static/js/2.1d778ee4.chunk.js.LICENSE.txt"
+    "url": "/graphy/static/js/2.3f10d57b.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "b64c4d7b122b6c675647",
-    "url": "/graphy/static/js/main.4ccc1897.chunk.js"
+    "revision": "2fb34af6418c185667c1",
+    "url": "/graphy/static/js/main.8f698f30.chunk.js"
   },
   {
     "revision": "48f4c82d195b8d477ded",
@@ -102,6 +102,14 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "c6004be49628b1226eb31b068348d24f",
     "url": "/graphy/static/media/LuckiestGuy-Regular.c6004be4.ttf"
+  },
+  {
+    "revision": "dc7947b63602675ec87b023cfc35d028",
+    "url": "/graphy/static/media/Minecrafter_Alt.dc7947b6.ttf"
+  },
+  {
+    "revision": "9a402d6a80ceda873798bf79af582916",
+    "url": "/graphy/static/media/Minecrafter_Reg.9a402d6a.ttf"
   },
   {
     "revision": "411051cb61bcda5517943601e8734cea",
